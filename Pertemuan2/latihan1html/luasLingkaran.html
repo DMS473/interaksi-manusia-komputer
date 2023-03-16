@@ -43,11 +43,11 @@
   <body>
     <div class="App">
       <header class="App-header">
-        <h1>Program menghitung Luas Segitiga!</h1>
+        <h1>Program menghitung Luas Lingkaran!</h1>
 
         <form class="mt-3" onSubmit="calculate(event)" id="form">
           <label>
-            Panjang Alas :
+            Panjang jari-jari :
             <br />
             <input
               class="form-control"
@@ -58,7 +58,7 @@
             />
           </label>
           <br />
-          <label>
+          <!-- <label>
             Panjang Tinggi :
             <br />
             <input
@@ -68,14 +68,14 @@
               id="tinggi"
               value=""
             />
-          </label>
-          <br />
+          </label> -->
+          <!-- <br /> -->
           <br />
           <button class="btn btn-primary">Hitung Luas</button>
           <br />
           <br />
           <!-- {/* <label>100</label> */} -->
-          <h2 id="hasil">Luas Segitiga :</h2>
+          <h2 id="hasil">Luas Lingkaran :</h2>
           <!-- {/* onClick={activateLasers} */} -->
         </form>
       </header>
@@ -94,9 +94,9 @@
         // )
         // angka = 20
         alas = document.getElementById("alas").value;
-        tinggi = document.getElementById("tinggi").value;
-        let hasil = (alas * tinggi) / 2;
-        document.getElementById("hasil").innerHTML = "Luas Segitiga : " + hasil;
+        // tinggi = document.getElementById("tinggi").value;
+        let hasil = alas * alas * 3.14;
+        document.getElementById("hasil").innerHTML = "Luas Lingkaran : " + hasil;
       };
     </script>
   </body>
