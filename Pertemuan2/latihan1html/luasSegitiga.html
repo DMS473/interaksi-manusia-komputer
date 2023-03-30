@@ -44,7 +44,9 @@
     <div class="App">
       <header class="App-header">
         <h1>Program menghitung Luas Segitiga!</h1>
-
+        <a class="btn btn-success" href="./luasLingkaran.html"
+          >Menuju Program Lingkaran</a
+        >
         <form class="mt-3" onSubmit="calculate(event)" id="form">
           <label>
             Panjang Alas :
@@ -77,6 +79,9 @@
           <!-- {/* <label>100</label> */} -->
           <h2 id="hasil">Luas Segitiga :</h2>
           <!-- {/* onClick={activateLasers} */} -->
+
+          <h3 id="timer">waktu</h3>
+          <h3 id="click">klik</h3>
         </form>
       </header>
     </div>
@@ -98,6 +103,55 @@
         let hasil = (alas * tinggi) / 2;
         document.getElementById("hasil").innerHTML = "Luas Segitiga : " + hasil;
       };
+    </script>
+    <script>
+      var INITIAL_WAIT = 3000;
+      var INTERVAL_WAIT = 10000;
+      var ONE_SECOND = 1000;
+
+      var events = ["mouseup", "keydown", "scroll", "mousemove"];
+      var startTime = Date.now();
+      var endTime = startTime + INITIAL_WAIT;
+      var totalTime = 0;
+      var clickCount = 0;
+      var buttonClicks = {
+        total: 0,
+      };
+      var buttonClickCount = 0;
+      var linkClickCount = 0;
+      var keypressCount = 0;
+      var scrollCount = 0;
+      var mouseMovementCount = 0;
+      var linkClickCount = 0;
+
+      var userActivity = {
+        path: window.location.pathname,
+        // clickCount,
+        activities: [],
+        // userTime: totalTime
+      };
+
+      setInterval(function () {
+        if (!document.hidden && startTime <= endTime) {
+          startTime = Date.now();
+          totalTime += ONE_SECOND;
+          document.getElementById("timer").innerHTML = totalTime;
+          // console.log(userActivity)
+          // console.log(window.location.pathname);
+        }
+      }, ONE_SECOND);
+
+      document.addEventListener("DOMContentLoaded", function () {
+        events.forEach(function (e) {
+          endTime = Date.now() + INTERVAL_WAIT;
+          if (e === "mouseup"){
+            clickCount++;
+            document.getElementById("click").innerHTML = clickCount;
+          }
+
+          // console.log(userActivity)
+        });
+      });
     </script>
   </body>
 </html>
