@@ -4,17 +4,17 @@ import { Navigate, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 const Lingkaran = () => {
-    const [title, setTitle] = useState("");
+  const [title, setTitle] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState(0);
-  let name = navigator.userAgent
+  let name = navigator.userAgent;
   const navigate = useNavigate();
-  
+
   const addMovie = async () => {
     try {
-        let alas1 = document.getElementById("alas").value;
-//   let tinggi1 = document.getElementById("tinggi").value;
-  let hasil1 = (alas1 * alas1 * 3.14) ;
+      let alas1 = document.getElementById("alas").value;
+      //   let tinggi1 = document.getElementById("tinggi").value;
+      let hasil1 = alas1 * alas1 * 3.14;
       let result = await axios({
         url: "http://localhost:3000/",
         method: "POST",
@@ -30,7 +30,7 @@ const Lingkaran = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     addMovie();
-    calculate()
+    calculate();
   };
 
   const movelogging = async () => {
@@ -49,20 +49,20 @@ const Lingkaran = () => {
   };
   const moveLog = (e) => {
     e.preventDefault();
-    
-    movelogging()
+
+    movelogging();
     navigate("/segitiga");
-  }
-    let calculate = () => {
-        let alas;
-        //   let tinggi;
-        // event.preventDefault();
-    
-        alas = document.getElementById("alas").value;
-            // tinggi = document.getElementById("tinggi").value;
-            let hasil = (alas * alas * 3.14) ;
-            document.getElementById("hasil").innerHTML = "Luas Lingkaran : " + hasil;
-      };
+  };
+  let calculate = () => {
+    let alas;
+    //   let tinggi;
+    // event.preventDefault();
+
+    alas = document.getElementById("alas").value;
+    // tinggi = document.getElementById("tinggi").value;
+    let hasil = alas * alas * 3.14;
+    document.getElementById("hasil").innerHTML = "Luas Lingkaran : " + hasil;
+  };
   return (
     <div class="App">
       <header class="App-header">
@@ -73,11 +73,7 @@ const Lingkaran = () => {
         {/* <Link className="btn btn-success mt-2 mb-2" to="/lingkaran" onClick={moveLog}>
         Menuju Program Lingkaran
         </Link> */}
-        <form
-          class="mt-3"
-          onSubmit="calculate(event)"
-          id="form"
-        >
+        <form class="mt-3" onSubmit="calculate(event)" id="form">
           <label>
             Panjang Jari-jari :
             <br />
@@ -89,12 +85,12 @@ const Lingkaran = () => {
               value=""
             /> */}
             <input
-                onChange={(e) => setImage(e.target.value)}
-                type="text"
-                className="form-control"
-                // placeholder="Input image"
-                id="alas"
-              ></input>
+              onChange={(e) => setImage(e.target.value)}
+              type="text"
+              className="form-control"
+              // placeholder="Input image"
+              id="alas"
+            ></input>
           </label>
           {/* <br />
           <label>
@@ -110,7 +106,9 @@ const Lingkaran = () => {
           </label> */}
           <br />
           <br />
-          <button class="btn btn-primary" onClick={submitHandler}>Hitung Luas</button>
+          <button class="btn btn-primary" onClick={submitHandler}>
+            Hitung Luas
+          </button>
           <br />
           <br />
 
@@ -118,7 +116,7 @@ const Lingkaran = () => {
         </form>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default Lingkaran
+export default Lingkaran;
